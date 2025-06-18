@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Car_Rentals.Views.CarDetailPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20">
+                <!-- Car Image -->
+                <Frame BackgroundColor="LightGray" HeightRequest="200">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="🚗" FontSize="80" HorizontalOptions="Center"/>
+                        <Label Text="{Binding Car.Brand}" FontSize="20" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Car Details -->
+                <StackLayout Spacing="15">
+                    <Label Text="{Binding Car.Brand}" 
+                           FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="{Binding Car.Model}" 
+                           FontSize="20" TextColor="Gray" HorizontalOptions="Center"/>
+                    
+                    <Label Text="{Binding Car.Description}" 
+                           FontSize="16" TextColor="Gray" HorizontalOptions="Center"/>
+                    
+                    <!-- Car Specifications -->
+                    <Frame BackgroundColor="White" Padding="15" HasShadow="True">
+                        <StackLayout Spacing="10">
+                            <Label Text="Specifications" FontSize="18" FontAttributes="Bold"/>
+                            
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto">
+                                <Label Text="Year:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="{Binding Car.Year}" Grid.Row="0" Grid.Column="1"/>
+                                
+                                <Label Text="Color:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="{Binding Car.Color}" Grid.Row="1" Grid.Column="1"/>
+                                
+                                <Label Text="Transmission:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="{Binding Car.Transmission}" Grid.Row="2" Grid.Column="1"/>
+                                
+                                <Label Text="Fuel Type:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="{Binding Car.FuelType}" Grid.Row="3" Grid.Column="1"/>
+                            </Grid>
+                            
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" Margin="0,10,0,0">
+                                <Label Text="Mileage:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="{Binding Car.Mileage, StringFormat='{0:N0} miles'}" Grid.Row="0" Grid.Column="1"/>
+                                
+                                <Label Text="Seats:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="{Binding Car.Seats}" Grid.Row="1" Grid.Column="1"/>
+                                
+                                <Label Text="Category:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="{Binding Car.Category}" Grid.Row="2" Grid.Column="1"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Rental Form -->
+                    <Frame BackgroundColor="White" Padding="15" HasShadow="True">
+                        <StackLayout Spacing="15">
+                            <Label Text="Rental Details" FontSize="18" FontAttributes="Bold"/>
+                            
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="10">
+                                <Label Text="Pickup Date:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                                <DatePicker Date="{Binding PickupDate}" Grid.Row="0" Grid.Column="1"/>
+                                
+                                <Label Text="Return Date:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                                <DatePicker Date="{Binding ReturnDate}" Grid.Row="1" Grid.Column="1"/>
+                                
+                                <Label Text="Pickup Location:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                                <Entry Text="{Binding PickupLocation}" Grid.Row="2" Grid.Column="1"/>
+                                
+                                <Label Text="Return Location:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                                <Entry Text="{Binding ReturnLocation}" Grid.Row="3" Grid.Column="1"/>
+                            </Grid>
+                            
+                            <!-- Total Cost -->
+                            <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                <Label Text="Total Cost:" FontSize="16" FontAttributes="Bold"/>
+                                <Label Text=" " HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding TotalCost, StringFormat='${0:F2}'}" 
+                                       FontSize="18" FontAttributes="Bold" 
+                                       TextColor="{StaticResource Primary}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Action Buttons -->
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Button Text="Add to Favorites" 
+                                Command="{Binding AddToFavoritesCommand}"
+                                BackgroundColor="Gray"
+                                TextColor="White"
+                                HorizontalOptions="FillAndExpand"
+                                HeightRequest="50"/>
+                        
+                        <Button Text="Rent Now" 
+                                Command="{Binding RentCarCommand}"
+                                IsEnabled="{Binding IsNotBusy}"
+                                BackgroundColor="{StaticResource Primary}"
+                                TextColor="White"
+                                HorizontalOptions="FillAndExpand"
+                                HeightRequest="50"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage> 

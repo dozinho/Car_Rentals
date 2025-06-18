@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Car_Rentals.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" VerticalOptions="Center" Spacing="20">
+                <!-- Logo/Title -->
+                <StackLayout HorizontalOptions="Center" Spacing="10">
+                    <Label Text="🚗" FontSize="60" HorizontalOptions="Center"/>
+                    <Label Text="Car Rentals" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="Sign in to your account" FontSize="16" TextColor="Gray" HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <!-- Login Form -->
+                <StackLayout Spacing="15">
+                    <Entry Placeholder="Username or Email" 
+                           Text="{Binding Username}"
+                           ReturnType="Next"/>
+                    
+                    <Entry Placeholder="Password" 
+                           Text="{Binding Password}"
+                           IsPassword="True"
+                           ReturnType="Done"/>
+                    
+                    <!-- Error Message -->
+                    <Label Text="{Binding ErrorMessage}" 
+                           TextColor="Red" 
+                           IsVisible="{Binding IsErrorVisible}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <!-- Login Button -->
+                <Button Text="Sign In" 
+                        Command="{Binding LoginCommand}"
+                        IsEnabled="{Binding IsNotBusy}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"
+                        HeightRequest="50"/>
+
+                <!-- Register Link -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Don't have an account? " TextColor="Gray"/>
+                    <Label Text="Sign up" TextColor="{StaticResource Primary}" FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <!-- Demo Credentials -->
+                <StackLayout BackgroundColor="LightGray" Padding="15">
+                    <Label Text="Demo Credentials:" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label Text="Username: johndoe" HorizontalOptions="Center"/>
+                    <Label Text="Password: password123" HorizontalOptions="Center"/>
+                    <Label Text="Or try: admin / admin123" HorizontalOptions="Center" FontSize="12"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

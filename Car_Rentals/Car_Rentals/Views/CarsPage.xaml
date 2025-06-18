@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Car_Rentals.Views.CarsPage"
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Search and Filter Bar -->
+            <StackLayout Padding="15" BackgroundColor="White" Spacing="10">
+                <!-- Search Bar -->
+                <Frame BackgroundColor="LightGray" Padding="15,5">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="🔍" FontSize="18" VerticalOptions="Center"/>
+                        <Entry Placeholder="Search cars..." 
+                               Text="{Binding SearchText}"
+                               HorizontalOptions="FillAndExpand"
+                               ReturnType="Search"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Filter Options -->
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Picker Title="Category" 
+                            SelectedItem="{Binding SelectedCategory}"
+                            HorizontalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String>All Categories</x:String>
+                            <x:String>Economy</x:String>
+                            <x:String>Compact</x:String>
+                            <x:String>Mid-size</x:String>
+                            <x:String>Full-size</x:String>
+                            <x:String>SUV</x:String>
+                            <x:String>Luxury</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    
+                    <CheckBox IsChecked="{Binding ShowOnlyAvailable}" 
+                             VerticalOptions="Center"/>
+                    <Label Text="Available Only" VerticalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Cars List -->
+            <RefreshView IsRefreshing="{Binding IsBusy}" Command="{Binding LoadCarsCommand}">
+                <CollectionView ItemsSource="{Binding Cars}" 
+                               SelectionMode="Single"
+                               SelectionChanged="OnCarSelected">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="10,5" Padding="15" 
+                                   BackgroundColor="White" HasShadow="True">
+                                <StackLayout>
+                                    <!-- Car Image Placeholder -->
+                                    <Frame BackgroundColor="LightGray" HeightRequest="120" 
+                                           HorizontalOptions="Fill">
+                                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                            <Label Text="🚗" FontSize="40" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding Brand}" FontSize="12" HorizontalOptions="Center"/>
+                                        </StackLayout>
+                                    </Frame>
+
+                                    <!-- Car Details -->
+                                    <StackLayout Margin="0,10,0,0" Spacing="5">
+                                        <Label Text="{Binding Brand}" 
+                                               FontSize="18" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Model}" 
+                                               FontSize="16" TextColor="Gray"/>
+                                        
+                                        <StackLayout Orientation="Horizontal" Spacing="15">
+                                            <Label Text="{Binding Year}" FontSize="14"/>
+                                            <Label Text="{Binding Color}" FontSize="14"/>
+                                            <Label Text="{Binding Transmission}" FontSize="14"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Orientation="Horizontal" Spacing="15">
+                                            <Label Text="{Binding FuelType}" FontSize="14"/>
+                                            <Label Text="{Binding Seats, StringFormat='{0} seats'}" FontSize="14"/>
+                                        </StackLayout>
+                                        
+                                        <StackLayout Orientation="Horizontal" Spacing="15">
+                                            <Label Text="{Binding Mileage, StringFormat='{0:N0} miles'}" FontSize="14"/>
+                                            <Label Text="{Binding Category}" FontSize="14" TextColor="Gray"/>
+                                        </StackLayout>
+                                        
+                                        <!-- Price and Availability -->
+                                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Label Text="{Binding DailyRate, StringFormat='${0:F0}/day'}" 
+                                                   FontSize="16" FontAttributes="Bold" 
+                                                   TextColor="{StaticResource Primary}"/>
+                                            <Label Text=" " HorizontalOptions="FillAndExpand"/>
+                                            <Label Text="{Binding IsAvailable, StringFormat='Available: {0}'}" 
+                                                   FontSize="14" 
+                                                   TextColor="{Binding IsAvailable, Converter={StaticResource BoolToColorConverter}}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage> 
