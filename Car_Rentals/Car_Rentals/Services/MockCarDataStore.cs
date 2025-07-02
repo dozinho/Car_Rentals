@@ -15,7 +15,7 @@ namespace Car_Rentals.Services
             cars = new List<Car>()
             {
                 new Car { 
-                    Id = Guid.NewGuid().ToString(), 
+                    Id = "camry", 
                     Brand = "Toyota", 
                     Model = "Camry", 
                     Year = 2022, 
@@ -24,7 +24,7 @@ namespace Car_Rentals.Services
                     FuelType = "Gasoline", 
                     Mileage = 15000, 
                     DailyRate = 45.00m, 
-                    ImageUrl = "https://example.com/camry.jpg", 
+                    PhotoName = "camry.jpg", 
                     Description = "Reliable mid-size sedan perfect for daily commuting and business trips.", 
                     IsAvailable = true, 
                     LicensePlate = "ABC123", 
@@ -32,7 +32,7 @@ namespace Car_Rentals.Services
                     Category = "Mid-size" 
                 },
                 new Car { 
-                    Id = Guid.NewGuid().ToString(), 
+                    Id = "civic", 
                     Brand = "Honda", 
                     Model = "Civic", 
                     Year = 2021, 
@@ -41,7 +41,7 @@ namespace Car_Rentals.Services
                     FuelType = "Gasoline", 
                     Mileage = 22000, 
                     DailyRate = 35.00m, 
-                    ImageUrl = "https://example.com/civic.jpg", 
+                    PhotoName = "civic.jpg", 
                     Description = "Fuel-efficient compact car ideal for city driving.", 
                     IsAvailable = true, 
                     LicensePlate = "XYZ789", 
@@ -49,7 +49,7 @@ namespace Car_Rentals.Services
                     Category = "Compact" 
                 },
                 new Car { 
-                    Id = Guid.NewGuid().ToString(), 
+                    Id = "explorer", 
                     Brand = "Ford", 
                     Model = "Explorer", 
                     Year = 2023, 
@@ -58,7 +58,7 @@ namespace Car_Rentals.Services
                     FuelType = "Gasoline", 
                     Mileage = 8000, 
                     DailyRate = 65.00m, 
-                    ImageUrl = "https://example.com/explorer.jpg", 
+                    PhotoName = "explorer.jpg", 
                     Description = "Spacious SUV perfect for family trips and outdoor adventures.", 
                     IsAvailable = true, 
                     LicensePlate = "DEF456", 
@@ -66,7 +66,7 @@ namespace Car_Rentals.Services
                     Category = "SUV" 
                 },
                 new Car { 
-                    Id = Guid.NewGuid().ToString(), 
+                    Id = "bmw3", 
                     Brand = "BMW", 
                     Model = "3 Series", 
                     Year = 2022, 
@@ -75,7 +75,7 @@ namespace Car_Rentals.Services
                     FuelType = "Gasoline", 
                     Mileage = 12000, 
                     DailyRate = 85.00m, 
-                    ImageUrl = "https://example.com/bmw3.jpg", 
+                    PhotoName = "bmw3.jpg", 
                     Description = "Luxury sedan with premium features and excellent performance.", 
                     IsAvailable = true, 
                     LicensePlate = "GHI789", 
@@ -83,7 +83,7 @@ namespace Car_Rentals.Services
                     Category = "Luxury" 
                 },
                 new Car { 
-                    Id = Guid.NewGuid().ToString(), 
+                    Id = "altima", 
                     Brand = "Nissan", 
                     Model = "Altima", 
                     Year = 2021, 
@@ -92,7 +92,7 @@ namespace Car_Rentals.Services
                     FuelType = "Gasoline", 
                     Mileage = 18000, 
                     DailyRate = 40.00m, 
-                    ImageUrl = "https://example.com/altima.jpg", 
+                    PhotoName = "altima.jpg", 
                     Description = "Comfortable mid-size sedan with great fuel economy.", 
                     IsAvailable = false, 
                     LicensePlate = "JKL012", 
@@ -100,7 +100,7 @@ namespace Car_Rentals.Services
                     Category = "Mid-size" 
                 },
                 new Car { 
-                    Id = Guid.NewGuid().ToString(), 
+                    Id = "spark", 
                     Brand = "Chevrolet", 
                     Model = "Spark", 
                     Year = 2020, 
@@ -109,7 +109,7 @@ namespace Car_Rentals.Services
                     FuelType = "Gasoline", 
                     Mileage = 25000, 
                     DailyRate = 25.00m, 
-                    ImageUrl = "https://example.com/spark.jpg", 
+                    PhotoName = "spark.jpg", 
                     Description = "Economical subcompact car perfect for budget-conscious travelers.", 
                     IsAvailable = true, 
                     LicensePlate = "MNO345", 

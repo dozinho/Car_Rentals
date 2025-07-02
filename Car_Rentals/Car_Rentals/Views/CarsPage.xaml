@@ -55,12 +55,8 @@
                                    BackgroundColor="White" HasShadow="True">
                                 <StackLayout>
                                     <!-- Car Image Placeholder -->
-                                    <Frame BackgroundColor="LightGray" HeightRequest="120" 
-                                           HorizontalOptions="Fill">
-                                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                            <Label Text="🚗" FontSize="40" HorizontalOptions="Center"/>
-                                            <Label Text="{Binding Brand}" FontSize="12" HorizontalOptions="Center"/>
-                                        </StackLayout>
+                                    <Frame HeightRequest="120" HorizontalOptions="Fill" HasShadow="True">
+                                        <Image Source="{Binding PhotoName}" Aspect="AspectFit" HeightRequest="120" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center"/>
                                     </Frame>
 
                                     <!-- Car Details -->

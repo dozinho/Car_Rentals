@@ -11,11 +11,8 @@
         <ScrollView>
             <StackLayout Padding="20" Spacing="20">
                 <!-- Car Image -->
-                <Frame BackgroundColor="LightGray" HeightRequest="200">
-                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label Text="🚗" FontSize="80" HorizontalOptions="Center"/>
-                        <Label Text="{Binding Car.Brand}" FontSize="20" HorizontalOptions="Center"/>
-                    </StackLayout>
+                <Frame HeightRequest="200">
+                    <Image Source="{Binding Car.PhotoName}" Aspect="AspectFit" HeightRequest="200" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center"/>
                 </Frame>
 
                 <!-- Car Details -->
