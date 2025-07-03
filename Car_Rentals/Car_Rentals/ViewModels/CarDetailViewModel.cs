@@ -7,13 +7,32 @@ using Xamarin.Forms;
 
 namespace Car_Rentals.ViewModels
 {
+    [QueryProperty(nameof(CarId), nameof(CarId))]
     public class CarDetailViewModel : BaseViewModel
     {
         private readonly ICarDataStore _carDataStore;
         private readonly IAuthService _authService;
         
-        public string CarId { get; set; }
-        public Car Car { get; set; }
+        private string carId;
+        public string CarId
+        {
+            get => carId;
+            set
+            {
+                carId = value;
+                LoadCarCommand.Execute(null);
+            }
+        }
+        private Car car;
+        public Car Car
+        {
+            get => car;
+            set
+            {
+                car = value;
+                OnPropertyChanged(nameof(Car));
+            }
+        }
         public Command LoadCarCommand { get; }
         public Command RentCarCommand { get; }
         public Command AddToFavoritesCommand { get; }
