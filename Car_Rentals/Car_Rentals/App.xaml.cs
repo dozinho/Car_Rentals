@@ -15,10 +15,12 @@ namespace Car_Rentals
             InitializeComponent();
 
             // Register services
-            DependencyService.Register<ICarDataStore, MockCarDataStore>();
-            DependencyService.Register<IAuthService, MockAuthService>();
+            DependencyService.Register<ICarDataStore, MockCarDataStore>(); // Mock data store for cars
+            DependencyService.Register<IAuthService, MockAuthService>(); // Mock authentication service
+           //  DependencyService.Register<IRentalDataStore, IRentalDataStore>();
 
-           // MainPage = new AppShell();
+
+            // MainPage = new AppShell();
             MainPage = new NavigationPage(new WelcomePage());
         }
 

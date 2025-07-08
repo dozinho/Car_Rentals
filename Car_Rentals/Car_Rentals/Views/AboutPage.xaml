@@ -46,7 +46,7 @@
                     <StackLayout Spacing="5">
                         <Label Text="📧 Email: info@carrentals.com" TextColor="Gray"/>
                         <Label Text="📞 Phone: (555) 123-4567" TextColor="Gray"/>
-                        <Label Text="📍 Address: 123 Main Street, City, State 12345" TextColor="Gray"/>
+                        <Label Text="📍 Address: 740 Bathurst Street, Toronto,ON M5S 2R6, Canada " TextColor="Gray"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>
@@ -59,20 +59,14 @@
                         <Label Text="Framework: Xamarin.Forms 5.0" TextColor="Gray"/>
                         <Label Text="Platform: Cross-platform (iOS, Android)" TextColor="Gray"/>
                         <Label Text="Architecture: MVVM Pattern" TextColor="Gray"/>
-                        <Label Text="Version: 1.0.0" TextColor="Gray"/>
+                        <Label Text="Version: 1.1.0" TextColor="Gray"/>
                         <Label Text="Build Date: December 2024" TextColor="Gray"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>
 
             <!-- Demo Information -->
-            <Frame Style="{StaticResource CardFrame}" BackgroundColor="LightBlue">
-                <StackLayout Spacing="10">
-                    <Label Text="Demo Mode" FontSize="18" FontAttributes="Bold" HorizontalOptions="Center"/>
-                    <Label Text="This is a demonstration version of the Car Rentals app. All data is simulated for testing purposes. In a production environment, this would connect to real backend services and databases." 
-                           TextColor="DarkBlue" LineBreakMode="WordWrap" HorizontalOptions="Center"/>
-                </StackLayout>
-            </Frame>
+           
         </StackLayout>
     </ScrollView>
 </ContentPage>
