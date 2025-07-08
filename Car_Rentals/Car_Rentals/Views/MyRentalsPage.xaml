@@ -9,7 +9,7 @@
 
     <ContentPage.Content>
         <StackLayout Padding="20" VerticalOptions="Center">
-            <Label Text="🚗" FontSize="60" HorizontalOptions="Center"/>
+            <Image Source="Rent.png" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="Center"/>
             <Label Text="My Rentals" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
             <Label Text="Your rental history will appear here" FontSize="16" TextColor="Gray" HorizontalOptions="Center" Margin="0,20,0,0"/>
             <Label Text="Coming soon..." FontSize="14" TextColor="LightGray" HorizontalOptions="Center"/>

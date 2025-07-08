@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Car_Rentals.Views.WelcomePage"
+             BackgroundColor="#061437"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout VerticalOptions="FillAndExpand"
+                 Padding="20"
+                 Spacing="30">
+
+        <!-- Car Image -->
+        <Image Source="welcome.png" 
+               Aspect="Fill" 
+               HeightRequest="300"
+               HorizontalOptions="Center"/>
+
+        <!-- Text Section -->
+        <StackLayout VerticalOptions="EndAndExpand" Spacing="10">
+
+            <Label HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Premium cars," FontSize="28" TextColor="White" FontAttributes="Bold"/>
+                        <Span Text="&#10;" />
+                        <Span Text="enjoy the luxury" FontSize="28" FontAttributes="Bold" TextColor="White"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Text="Premium and prestige car daily and monthly rental. Experience the thrill at a lower price."
+                   TextColor="#BCC4D4"
+                   FontSize="14"
+                   HorizontalTextAlignment="Center"/>
+        </StackLayout>
+
+        <!-- Button -->
+        <Button Text="Let’s Go"
+                TextColor="#061437"
+                BackgroundColor="#F9F6E5"
+                FontAttributes="Bold"
+                CornerRadius="20"
+                HeightRequest="50"
+                Clicked="OnLetsGoClicked"/>
+    </StackLayout>
+</ContentPage>
