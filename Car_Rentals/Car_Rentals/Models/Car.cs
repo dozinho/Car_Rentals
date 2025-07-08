@@ -10,7 +10,7 @@ namespace Car_Rentals.Models
         public int Year { get; set; }
         public string Color { get; set; }
         public string Transmission { get; set; } // Manual, Automatic
-        public string FuelType { get; set; } // Gasoline, Diesel, Electric, Hybrid
+        public double FuelConsumption { get; set; } 
         public int Mileage { get; set; }
         public decimal DailyRate { get; set; }
         public string PhotoName { get; set; }
