@@ -12,7 +12,8 @@ namespace Car_Rentals.ViewModels
     {
         private readonly ICarDataStore _carDataStore;
         private readonly IAuthService _authService;
-        
+        private readonly IRentalDataStore _rentalDataStore;
+
         private string carId;
         public string CarId
         {
@@ -36,10 +37,51 @@ namespace Car_Rentals.ViewModels
         public Command LoadCarCommand { get; }
         public Command RentCarCommand { get; }
         public Command AddToFavoritesCommand { get; }
-        
-        public DateTime PickupDate { get; set; } = DateTime.Now.AddDays(1);
-        public DateTime ReturnDate { get; set; } = DateTime.Now.AddDays(2);
-        public decimal TotalCost { get; set; }
+
+        // public DateTime PickupDate { get; set; } = DateTime.Now.AddDays(1);
+        //   public DateTime ReturnDate { get; set; } = DateTime.Now.AddDays(2);
+        private DateTime pickupDate = DateTime.Now.AddDays(1);
+        public DateTime PickupDate
+        {
+            get => pickupDate;
+            set
+            {
+                if (pickupDate != value)
+                {
+                    pickupDate = value;
+                    OnPropertyChanged(nameof(PickupDate));
+                    CalculateTotalCost();
+                }
+            }
+        }
+
+        private DateTime returnDate = DateTime.Now.AddDays(2);
+        public DateTime ReturnDate
+        {
+            get => returnDate;
+            set
+            {
+                if (returnDate != value)
+                {
+                    returnDate = value;
+                    OnPropertyChanged(nameof(ReturnDate));
+                    CalculateTotalCost();
+                }
+            }
+        }
+
+        //  public decimal TotalCost { get; set; }
+        private decimal totalCost;
+        public decimal TotalCost
+        {
+            get => totalCost;
+            set
+            {
+                totalCost = value;
+                OnPropertyChanged(nameof(TotalCost));
+            }
+        }
+
         public string PickupLocation { get; set; } = "Main Office";
         public string ReturnLocation { get; set; } = "Main Office";
 
@@ -51,6 +93,8 @@ namespace Car_Rentals.ViewModels
             
             _carDataStore = DependencyService.Get<ICarDataStore>();
             _authService = DependencyService.Get<IAuthService>();
+            _rentalDataStore = DependencyService.Get<IRentalDataStore>();
+
         }
 
         async Task ExecuteLoadCarCommand()
@@ -129,7 +173,7 @@ namespace Car_Rentals.ViewModels
                 };
 
                 // TODO: Add rental to data store
-                // await _rentalDataStore.AddRentalAsync(rental);
+                 await _rentalDataStore.AddRentalAsync(rental);
 
                 // Update car availability
                 await _carDataStore.UpdateCarAvailabilityAsync(Car.Id, false);

@@ -11,8 +11,8 @@
             <StackLayout Padding="20" VerticalOptions="Center" Spacing="20">
                 <!-- Logo/Title -->
                 <StackLayout HorizontalOptions="Center" Spacing="10">
-                    <Label Text="🚗" FontSize="60" HorizontalOptions="Center"/>
-                    <Label Text="Car Rentals" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Image Source="Rent.png" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="Center"/>
+                   
                     <Label Text="Sign in to your account" FontSize="16" TextColor="Gray" HorizontalOptions="Center"/>
                 </StackLayout>
 
