@@ -10,15 +10,20 @@
         <ResourceDictionary>
             <!-- Converters -->
             <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
-            
-            <!-- Colors -->
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="PrimaryDark">#1976D2</Color>
-            <Color x:Key="Accent">#FF4081</Color>
-            <Color x:Key="Success">#4CAF50</Color>
-            <Color x:Key="Warning">#FF9800</Color>
-            <Color x:Key="Error">#F44336</Color>
-            
+
+            <Color x:Key="Primary">#1A237E</Color>
+            <!-- Navy Indigo -->
+            <Color x:Key="PrimaryDark">#0D1333</Color>
+            <Color x:Key="Accent">#FFC107</Color>
+            <!-- Amber (Luxury accent) -->
+            <Color x:Key="CardBackground">#FAFAFA</Color>
+            <!-- Soft off-white -->
+
+            <!-- Optional redefined alert/status colors -->
+            <Color x:Key="Success">#43A047</Color>
+            <Color x:Key="Warning">#FB8C00</Color>
+            <Color x:Key="Error">#E53935</Color>
+
             <!-- Button Styles -->
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
@@ -49,11 +54,14 @@
             </Style>
             
             <!-- Frame Styles -->
+         
+
             <Style x:Key="CardFrame" TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="White" />
-                <Setter Property="HasShadow" Value="True" />
-                <Setter Property="Padding" Value="15" />
-                <Setter Property="Margin" Value="10,5" />
+                <Setter Property="BackgroundColor" Value="{StaticResource CardBackground}" />
+                <Setter Property="CornerRadius" Value="12"/>
+                <Setter Property="Padding" Value="15"/>
+                <Setter Property="Margin" Value="10,5"/>
+                <Setter Property="HasShadow" Value="True"/>
             </Style>
         </ResourceDictionary>        
     </Application.Resources>

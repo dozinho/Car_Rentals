@@ -18,7 +18,8 @@ namespace Car_Rentals
             DependencyService.Register<ICarDataStore, MockCarDataStore>();
             DependencyService.Register<IAuthService, MockAuthService>();
 
-            MainPage = new AppShell();
+           // MainPage = new AppShell();
+            MainPage = new NavigationPage(new WelcomePage());
         }
 
         protected override void OnStart()
