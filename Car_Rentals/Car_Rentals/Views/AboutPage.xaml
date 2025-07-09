@@ -45,14 +45,14 @@
                     <Label Text="Contact Information:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
                     <StackLayout Spacing="5">
                         <Label Text="📧 Email: info@carrentals.com" TextColor="Gray"/>
-                        <Label Text="📞 Phone: (555) 123-4567" TextColor="Gray"/>
+                        <Label Text="📞 Phone: 647 612 7083" TextColor="Gray"/>
                         <Label Text="📍 Address: 740 Bathurst Street, Toronto,ON M5S 2R6, Canada " TextColor="Gray"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>
 
             <!-- Technical Information -->
-            <Frame Style="{StaticResource CardFrame}">
+            <!--<Frame Style="{StaticResource CardFrame}">
                 <StackLayout Spacing="15">
                     <Label Text="Technical Details" FontSize="20" FontAttributes="Bold"/>
                     <StackLayout Spacing="5">
@@ -63,7 +63,7 @@
                         <Label Text="Build Date: December 2024" TextColor="Gray"/>
                     </StackLayout>
                 </StackLayout>
-            </Frame>
+            </Frame>-->
 
             <!-- Demo Information -->
            

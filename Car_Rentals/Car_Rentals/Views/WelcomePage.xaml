@@ -21,14 +21,14 @@
             <Label HorizontalTextAlignment="Center">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Premium cars," FontSize="28" TextColor="White" FontAttributes="Bold"/>
+                        <Span Text="Premium Cars," FontSize="32" TextColor="White" FontAttributes="Bold"/>
                         <Span Text="&#10;" />
-                        <Span Text="enjoy the luxury" FontSize="28" FontAttributes="Bold" TextColor="White"/>
+                        <Span Text="Enjoy the luxury" FontSize="28" FontAttributes="Bold" TextColor="White"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
 
-            <Label Text="Premium and prestige car daily and monthly rental. Experience the thrill at a lower price."
+            <Label Text="Premium and prestige Car. Daily and monthly rental. Experience the thrill at a lower price."
                    TextColor="#BCC4D4"
                    FontSize="14"
                    HorizontalTextAlignment="Center"/>
