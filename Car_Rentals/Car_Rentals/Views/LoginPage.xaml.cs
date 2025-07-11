@@ -1,4 +1,4 @@
-﻿using Car_Rentals.ViewModels;
+using Car_Rentals.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +16,12 @@ namespace Car_Rentals.Views
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
+        }
+
+        private async void OnGuestClicked(object sender, EventArgs e)
+        {
+            // Navigate to CarsPage as guest
+            await Shell.Current.GoToAsync("//CarsPage");
         }
     }
 }

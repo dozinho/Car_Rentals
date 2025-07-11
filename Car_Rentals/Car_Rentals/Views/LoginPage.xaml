@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -41,6 +41,14 @@
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White"
                         HeightRequest="50"/>
+
+                <!-- Guest Button -->
+                <Button Text="Continue as Guest"
+                        Clicked="OnGuestClicked"
+                        BackgroundColor="LightGray"
+                        TextColor="Black"
+                        HeightRequest="50"
+                        Margin="0,10,0,0"/>
 
                 <!-- Register Link -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

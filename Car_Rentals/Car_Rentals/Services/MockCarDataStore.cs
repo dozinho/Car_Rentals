@@ -59,7 +59,7 @@ new Car {
     Mileage = 26000,
     DailyRate = 980m,
     PhotoName = "DodgeDurango.png", // Add to Resources folder
-    Description = "The Dodge Durango is a powerful mid-size SUV with aggressive styling and three-row seating — ideal for family adventures or road trips with extra muscle.",
+    Description = "The Dodge Durango is a powerful mid-size SUV with aggressive styling and three-row seating ï¿½ ideal for family adventures or road trips with extra muscle.",
     IsAvailable = true,
     LicensePlate = "DURANGO1",
     Seats = 7,
@@ -76,7 +76,7 @@ new Car {
     Mileage = 22000,
     DailyRate = 1200m,
     PhotoName = "qx80.png",
-    Description = "A full-size luxury SUV known for its spacious interior, premium comfort, and smooth V8 power — perfect for VIP family or executive rentals.",
+    Description = "A full-size luxury SUV known for its spacious interior, premium comfort, and smooth V8 power ï¿½ perfect for VIP family or executive rentals.",
     IsAvailable = true,
     LicensePlate = "QX80LUX",
     Seats = 7,
