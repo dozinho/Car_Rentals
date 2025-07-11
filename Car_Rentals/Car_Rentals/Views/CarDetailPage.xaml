@@ -83,56 +83,56 @@
                 <Label Text="{Binding Car.Description}" FontSize="14" TextColor="Gray" HorizontalTextAlignment="Center" Margin="10,5"/>
 
                 <!-- Rental Form Section: select dates & locations -->
-                <Frame BackgroundColor="White" Padding="15" HasShadow="True">
-                    <StackLayout Spacing="15">
-                        <Label Text="Rental Details" FontSize="18" FontAttributes="Bold"/>
-
-                        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="10">
+                    <Frame BackgroundColor="White" Padding="15" HasShadow="True">
+                        <StackLayout Spacing="15">
+                            <Label Text="Rental Details" FontSize="18" FontAttributes="Bold"/>
+                            
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="10">
                             <!-- Pickup Date -->
-                            <Label Text="Pickup Date:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
-                            <DatePicker Date="{Binding PickupDate}" Grid.Row="0" Grid.Column="1"/>
-
+                                <Label Text="Pickup Date:" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                                <DatePicker Date="{Binding PickupDate}" Grid.Row="0" Grid.Column="1"/>
+                                
                             <!-- Return Date -->
-                            <Label Text="Return Date:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
-                            <DatePicker Date="{Binding ReturnDate}" Grid.Row="1" Grid.Column="1"/>
-
+                                <Label Text="Return Date:" Grid.Row="1" Grid.Column="0" FontAttributes="Bold"/>
+                                <DatePicker Date="{Binding ReturnDate}" Grid.Row="1" Grid.Column="1"/>
+                                
                             <!-- Pickup Location -->
-                            <Label Text="Pickup Location:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
-                            <Entry Text="{Binding PickupLocation}" Grid.Row="2" Grid.Column="1"/>
-
+                                <Label Text="Pickup Location:" Grid.Row="2" Grid.Column="0" FontAttributes="Bold"/>
+                                <Entry Text="{Binding PickupLocation}" Grid.Row="2" Grid.Column="1"/>
+                                
                             <!-- Return Location -->
-                            <Label Text="Return Location:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
-                            <Entry Text="{Binding ReturnLocation}" Grid.Row="3" Grid.Column="1"/>
-                        </Grid>
-
+                                <Label Text="Return Location:" Grid.Row="3" Grid.Column="0" FontAttributes="Bold"/>
+                                <Entry Text="{Binding ReturnLocation}" Grid.Row="3" Grid.Column="1"/>
+                            </Grid>
+                            
                         <!-- Display total cost -->
-                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
-                            <Label Text="Total Cost:" FontSize="16" FontAttributes="Bold"/>
-                            <Label Text=" " HorizontalOptions="FillAndExpand"/>
-                            <Label Text="{Binding TotalCost, StringFormat='${0:F2}'}" 
-                                   FontSize="18" FontAttributes="Bold" 
-                                   TextColor="{StaticResource Primary}"/>
+                            <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                <Label Text="Total Cost:" FontSize="16" FontAttributes="Bold"/>
+                                <Label Text=" " HorizontalOptions="FillAndExpand"/>
+                                <Label Text="{Binding TotalCost, StringFormat='${0:F2}'}" 
+                                       FontSize="18" FontAttributes="Bold" 
+                                       TextColor="{StaticResource Primary}"/>
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </Frame>
+                    </Frame>
 
                 <!-- Action Buttons: Add to Favorites & Rent Now -->
-                <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Button Text="Add to Favorites" 
-                            Command="{Binding AddToFavoritesCommand}"
-                            BackgroundColor="Gray"
-                            TextColor="White"
-                            HorizontalOptions="FillAndExpand"
-                            HeightRequest="50"/>
-
-                    <Button Text="Rent Now" 
-                            Command="{Binding RentCarCommand}"
-                            IsEnabled="{Binding IsNotBusy}"
-                            BackgroundColor="{StaticResource Primary}"
-                            TextColor="White"
-                            HorizontalOptions="FillAndExpand"
-                            HeightRequest="50"/>
-                </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Button Text="Add to Favorites" 
+                                Command="{Binding AddToFavoritesCommand}"
+                                BackgroundColor="Gray"
+                                TextColor="White"
+                                HorizontalOptions="FillAndExpand"
+                                HeightRequest="50"/>
+                        
+                        <Button Text="Rent Now" 
+                                Command="{Binding RentCarCommand}"
+                                IsEnabled="{Binding IsNotBusy}"
+                                BackgroundColor="{StaticResource Primary}"
+                                TextColor="White"
+                                HorizontalOptions="FillAndExpand"
+                                HeightRequest="50"/>
+                    </StackLayout>
 
                 <!-- Optional bottom section (commented out): GO button and price per day -->
                 <!--
@@ -146,4 +146,4 @@
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
-</ContentPage>
+</ContentPage> 
