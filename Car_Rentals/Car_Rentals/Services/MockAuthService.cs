@@ -94,6 +94,8 @@ namespace Car_Rentals.Services
             };
         }
 
+        public bool IsLoggedIn => currentUser != null;
+
         public async Task<bool> LoginAsync(string username, string password)
         {
             var user = users.FirstOrDefault(u => 

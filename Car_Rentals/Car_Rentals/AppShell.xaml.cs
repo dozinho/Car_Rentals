@@ -1,4 +1,4 @@
-﻿using Car_Rentals.Services;
+using Car_Rentals.Services;
 using Car_Rentals.ViewModels;
 using Car_Rentals.Views;
 using System;
@@ -10,6 +10,8 @@ namespace Car_Rentals
     public partial class AppShell : Xamarin.Forms.Shell
     {
         private readonly IAuthService _authService;
+        private FlyoutItem _loginFlyoutItem;
+        private MenuItem _logoutMenuItem;
 
         public AppShell()
         {
@@ -20,6 +22,54 @@ namespace Car_Rentals
             Routing.RegisterRoute(nameof(CarDetailPage), typeof(CarDetailPage));
             Routing.RegisterRoute(nameof(CarsPage), typeof(CarsPage));
             Routing.RegisterRoute(nameof(MyRentalsPage), typeof(MyRentalsPage));
+            Routing.RegisterRoute("LoginPage", typeof(Views.LoginPage));
+
+            // Initialize dynamic menu items
+            CreateDynamicMenuItems();
+            UpdateAuthMenuItems();
+        }
+
+        private void CreateDynamicMenuItems()
+        {
+            // Login FlyoutItem
+            _loginFlyoutItem = new FlyoutItem
+            {
+                Title = "Login",
+                Icon = "login_icon.png",
+                Items =
+                {
+                    new ShellContent
+                    {
+                        Route = "LoginPage",
+                        ContentTemplate = new DataTemplate(typeof(Views.LoginPage))
+                    }
+                }
+            };
+
+            // Logout MenuItem
+            _logoutMenuItem = new MenuItem
+            {
+                Text = "Logout"
+            };
+            _logoutMenuItem.Clicked += OnMenuItemClicked;
+        }
+
+        public void UpdateAuthMenuItems()
+        {
+            bool loggedIn = _authService?.IsLoggedIn ?? false;
+
+            // Remove both if present
+            if (Items.Contains(_loginFlyoutItem)) Items.Remove(_loginFlyoutItem);
+            if (Items.Contains(_logoutMenuItem)) Items.Remove(_logoutMenuItem);
+
+            if (loggedIn)
+            {
+                Items.Add(_logoutMenuItem);
+            }
+            else
+            {
+                Items.Add(_loginFlyoutItem);
+            }
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
@@ -27,11 +77,12 @@ namespace Car_Rentals
             try
             {
                 await _authService.LogoutAsync();
-                await Shell.Current.GoToAsync("//LoginPage");
+                await Shell.Current.GoToAsync("LoginPage"); // Use relative route
+                UpdateAuthMenuItems();
             }
-            catch
+            catch (Exception ex)
             {
-                await DisplayAlert("Error", "An error occurred during logout.", "OK");
+                await DisplayAlert("Error", $"An error occurred during logout: {ex.Message}", "OK");
             }
         }
     }

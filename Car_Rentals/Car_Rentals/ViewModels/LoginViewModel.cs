@@ -1,4 +1,4 @@
-﻿using Car_Rentals.Services;
+using Car_Rentals.Services;
 using Car_Rentals.Views;
 using System;
 using System.Collections.Generic;
@@ -48,6 +48,10 @@ namespace Car_Rentals.ViewModels
                 
                 if (success)
                 {
+                    // Update nav menu
+                    if (Application.Current.MainPage is AppShell shell)
+                        shell.UpdateAuthMenuItems();
+
                     // Navigate to main app
                     await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
                 }
