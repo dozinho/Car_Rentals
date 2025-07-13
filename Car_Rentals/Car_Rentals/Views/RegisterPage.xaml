@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Car_Rentals.Views.RegisterPage"
+             Title="Register"
+             BackgroundColor="#FAFAFA">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20">
+                <!-- Header -->
+                <StackLayout HorizontalOptions="Center" Margin="0,20,0,30">
+                    <Image Source="login_icon.png" Aspect="AspectFit" HeightRequest="80" HorizontalOptions="Center"/>
+                    <Label Text="Create Account" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,10,0,0"/>
+                    <Label Text="Join us to start renting cars" FontSize="14" TextColor="Gray" HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <!-- Registration Form -->
+                <Frame BackgroundColor="White" CornerRadius="15" HasShadow="True">
+                    <StackLayout Spacing="15">
+                        <!-- Personal Information Section -->
+                        <Label Text="Personal Information" FontSize="16" FontAttributes="Bold" TextColor="#2196F3"/>
+                        
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Entry Grid.Column="0" 
+                                   Placeholder="First Name" 
+                                   Text="{Binding FirstName}"
+                                   BackgroundColor="#F5F5F5"
+                             />
+                            
+                            <Entry Grid.Column="1" 
+                                   Placeholder="Last Name" 
+                                   Text="{Binding LastName}"
+                                   BackgroundColor="#F5F5F5"
+                                   />
+                        </Grid>
+
+                        <Entry Placeholder="Email Address" 
+                               Text="{Binding Email}"
+                               Keyboard="Email"
+                               BackgroundColor="#F5F5F5"
+                               />
+
+                        <Entry Placeholder="Phone Number" 
+                               Text="{Binding Phone}"
+                               Keyboard="Telephone"
+                               BackgroundColor="#F5F5F5"
+                               />
+
+                        <Entry Placeholder="Date of Birth (MM/DD/YYYY)" 
+                               Text="{Binding DateOfBirth}"
+                               BackgroundColor="#F5F5F5"
+                               />
+
+                        <!-- Address Section -->
+                        <Label Text="Address" FontSize="16" FontAttributes="Bold" TextColor="#2196F3" Margin="0,10,0,0"/>
+                        
+                        <Entry Placeholder="Street Address" 
+                               Text="{Binding Address}"
+                               BackgroundColor="#F5F5F5"
+                               />
+
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Entry Grid.Column="0" 
+                                   Placeholder="City" 
+                                   Text="{Binding City}"
+                                   BackgroundColor="#F5F5F5"
+                                   />
+                            
+                            <Entry Grid.Column="1" 
+                                   Placeholder="State" 
+                                   Text="{Binding State}"
+                                   BackgroundColor="#F5F5F5"
+                                   />
+                            
+                            <Entry Grid.Column="2" 
+                                   Placeholder="ZIP" 
+                                   Text="{Binding ZipCode}"
+                                   BackgroundColor="#F5F5F5"
+                                   />
+                        </Grid>
+
+                        <!-- License Information -->
+                        <Label Text="Driver's License" FontSize="16" FontAttributes="Bold" TextColor="#2196F3" Margin="0,10,0,0"/>
+                        
+                        <Entry Placeholder="License Number" 
+                               Text="{Binding LicenseNumber}"
+                               BackgroundColor="#F5F5F5"
+                               />
+
+                        <Entry Placeholder="License Expiry (MM/DD/YYYY)" 
+                               Text="{Binding LicenseExpiry}"
+                               BackgroundColor="#F5F5F5"
+                               />
+
+                        <!-- Account Information -->
+                        <Label Text="Account Information" FontSize="16" FontAttributes="Bold" TextColor="#2196F3" Margin="0,10,0,0"/>
+                        
+                        <Entry Placeholder="Username" 
+                               Text="{Binding Username}"
+                               BackgroundColor="#F5F5F5"
+                               />
+
+                        <Entry Placeholder="Password" 
+                               Text="{Binding Password}"
+                               IsPassword="True"
+                               BackgroundColor="#F5F5F5"
+                               />
+
+                        <Entry Placeholder="Confirm Password" 
+                               Text="{Binding ConfirmPassword}"
+                               IsPassword="True"
+                               BackgroundColor="#F5F5F5"
+                               />
+
+                        <!-- Error Message -->
+                        <Label Text="{Binding ErrorMessage}" 
+                               TextColor="Red" 
+                               IsVisible="{Binding IsErrorVisible}"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"/>
+
+                        <!-- Register Button -->
+                        <Button Text="Create Account" 
+                                Command="{Binding RegisterCommand}"
+                                BackgroundColor="#2196F3"
+                                TextColor="White"
+                                CornerRadius="25"
+                                HeightRequest="50"
+                                FontAttributes="Bold"
+                                Margin="0,20,0,0"/>
+
+                        <!-- Login Link -->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,15,0,0">
+                            <Label Text="Already have an account? " TextColor="Gray"/>
+                            <Label Text="Sign In" TextColor="#2196F3" FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToLoginCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage> 

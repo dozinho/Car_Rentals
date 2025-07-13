@@ -4,6 +4,7 @@ using Car_Rentals.Views;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using System.Linq; // Added for FirstOrDefault
 
 namespace Car_Rentals
 {
@@ -11,7 +12,6 @@ namespace Car_Rentals
     {
         private readonly IAuthService _authService;
         private FlyoutItem _loginFlyoutItem;
-        private MenuItem _logoutMenuItem;
 
         public AppShell()
         {
@@ -23,6 +23,7 @@ namespace Car_Rentals
             Routing.RegisterRoute(nameof(CarsPage), typeof(CarsPage));
             Routing.RegisterRoute(nameof(MyRentalsPage), typeof(MyRentalsPage));
             Routing.RegisterRoute("LoginPage", typeof(Views.LoginPage));
+            Routing.RegisterRoute("RegisterPage", typeof(Views.RegisterPage));
 
             // Initialize dynamic menu items
             CreateDynamicMenuItems();
@@ -45,40 +46,38 @@ namespace Car_Rentals
                     }
                 }
             };
-
-            // Logout MenuItem
-            _logoutMenuItem = new MenuItem
-            {
-                Text = "Logout"
-            };
-            _logoutMenuItem.Clicked += OnMenuItemClicked;
         }
 
         public void UpdateAuthMenuItems()
         {
+            // Remove old Login FlyoutItem
+            var itemsToRemove = new List<ShellItem>();
+            foreach (var item in Items.ToList())
+            {
+                if (item is FlyoutItem flyout && flyout.Title == "Login")
+                    itemsToRemove.Add(flyout);
+            }
+            foreach (var item in itemsToRemove)
+            {
+                Items.Remove(item);
+            }
+
             bool loggedIn = _authService?.IsLoggedIn ?? false;
 
-            // Remove both if present
-            if (Items.Contains(_loginFlyoutItem)) Items.Remove(_loginFlyoutItem);
-            if (Items.Contains(_logoutMenuItem)) Items.Remove(_logoutMenuItem);
-
-            if (loggedIn)
-            {
-                Items.Add(_logoutMenuItem);
-            }
-            else
+            // Show/hide Login FlyoutItem
+            if (!loggedIn)
             {
                 Items.Add(_loginFlyoutItem);
             }
         }
 
-        private async void OnMenuItemClicked(object sender, EventArgs e)
+        private async void OnLogoutMenuItemClicked(object sender, EventArgs e)
         {
             try
             {
                 await _authService.LogoutAsync();
-                await Shell.Current.GoToAsync("LoginPage"); // Use relative route
                 UpdateAuthMenuItems();
+                await Shell.Current.GoToAsync("//LoginPage");
             }
             catch (Exception ex)
             {

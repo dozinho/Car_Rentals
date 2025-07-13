@@ -74,9 +74,8 @@ namespace Car_Rentals.ViewModels
 
         private async Task OnRegisterClicked()
         {
-            // For now, just show a message that registration is not implemented
-            await Application.Current.MainPage.DisplayAlert("Registration", 
-                "Registration feature is coming soon! Please use the demo credentials to login.", "OK");
+            // Navigate to registration page
+            await Shell.Current.GoToAsync("RegisterPage");
         }
     }
 }

@@ -10,6 +10,7 @@
         <ResourceDictionary>
             <!-- Converters -->
             <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
+            <converters:UpcomingStatusToBoolConverter x:Key="UpcomingStatusToBoolConverter" />
 
             <Color x:Key="Primary">#1A237E</Color>
             <!-- Navy Indigo -->
