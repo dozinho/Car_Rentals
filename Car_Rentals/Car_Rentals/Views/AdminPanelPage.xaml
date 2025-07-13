@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Car_Rentals.Views.AdminPanelPage"
+            Title="Admin Panel">
+    <TabbedPage.Children>
+        <ContentPage Title="Cars" IconImageSource="car.png">
+            <StackLayout>
+                <Label Text="Car Management" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,10"/>
+                <Button Text="Add New Car" Command="{Binding AddCarCommand}" Margin="0,0,0,10"/>
+                <CollectionView ItemsSource="{Binding Cars}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="10,5" Padding="10" CornerRadius="8" BackgroundColor="White" HasShadow="True">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding PhotoName}" HeightRequest="50" WidthRequest="70" Aspect="AspectFit"/>
+                                    <StackLayout Margin="10,0,0,0">
+                                        <Label Text="{Binding Brand}" FontAttributes="Bold" FontSize="16"/>
+                                        <Label Text="{Binding Model}" FontSize="14"/>
+                                        <Label Text="{Binding LicensePlate}" FontSize="12" TextColor="Gray"/>
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Spacing="10">
+                                        <Button Text="Edit" Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.EditCarCommand}" CommandParameter="{Binding .}"/>
+                                        <Button Text="Delete" Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.DeleteCarCommand}" CommandParameter="{Binding .}" TextColor="Red"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ContentPage>
+        <ContentPage Title="Rentals" IconImageSource="Rent.png">
+            <StackLayout>
+                <Label Text="Rental Management (Coming Soon)" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,10"/>
+            </StackLayout>
+        </ContentPage>
+        <ContentPage Title="Users" IconImageSource="icon_about.png">
+            <StackLayout>
+                <Label Text="User Management (Coming Soon)" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,10"/>
+            </StackLayout>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage> 

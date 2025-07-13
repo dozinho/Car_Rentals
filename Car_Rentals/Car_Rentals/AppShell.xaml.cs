@@ -12,6 +12,7 @@ namespace Car_Rentals
     {
         private readonly IAuthService _authService;
         private FlyoutItem _loginFlyoutItem;
+        private FlyoutItem _adminPanelFlyoutItem;
 
         public AppShell()
         {
@@ -24,6 +25,7 @@ namespace Car_Rentals
             Routing.RegisterRoute(nameof(MyRentalsPage), typeof(MyRentalsPage));
             Routing.RegisterRoute("LoginPage", typeof(Views.LoginPage));
             Routing.RegisterRoute("RegisterPage", typeof(Views.RegisterPage));
+            Routing.RegisterRoute("AdminPanelPage", typeof(Views.AdminPanelPage));
 
             // Initialize dynamic menu items
             CreateDynamicMenuItems();
@@ -46,15 +48,30 @@ namespace Car_Rentals
                     }
                 }
             };
+
+            // Admin Panel FlyoutItem
+            _adminPanelFlyoutItem = new FlyoutItem
+            {
+                Title = "Admin Panel",
+                Icon = "icon_about.png",
+                Items =
+                {
+                    new ShellContent
+                    {
+                        Route = "AdminPanelPage",
+                        ContentTemplate = new DataTemplate(typeof(Views.AdminPanelPage))
+                    }
+                }
+            };
         }
 
-        public void UpdateAuthMenuItems()
+        public async void UpdateAuthMenuItems()
         {
             // Remove old Login FlyoutItem
             var itemsToRemove = new List<ShellItem>();
             foreach (var item in Items.ToList())
             {
-                if (item is FlyoutItem flyout && flyout.Title == "Login")
+                if (item is FlyoutItem flyout && (flyout.Title == "Login" || flyout.Title == "Admin Panel"))
                     itemsToRemove.Add(flyout);
             }
             foreach (var item in itemsToRemove)
@@ -63,11 +80,18 @@ namespace Car_Rentals
             }
 
             bool loggedIn = _authService?.IsLoggedIn ?? false;
+            var user = loggedIn ? await _authService.GetCurrentUserAsync() : null;
 
             // Show/hide Login FlyoutItem
             if (!loggedIn)
             {
                 Items.Add(_loginFlyoutItem);
+            }
+
+            // Show Admin Panel only for admins
+            if (loggedIn && user != null && user.IsAdmin)
+            {
+                Items.Add(_adminPanelFlyoutItem);
             }
         }
 
