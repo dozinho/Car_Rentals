@@ -61,12 +61,14 @@
                 </StackLayout>
 
                 <!-- Demo Credentials -->
+                <!--
                 <StackLayout BackgroundColor="LightGray" Padding="15">
                     <Label Text="Demo Credentials:" FontAttributes="Bold" HorizontalOptions="Center"/>
                     <Label Text="Username: johndoe" HorizontalOptions="Center"/>
                     <Label Text="Password: password123" HorizontalOptions="Center"/>
                     <Label Text="Or try: admin / admin123" HorizontalOptions="Center" FontSize="12"/>
                 </StackLayout>
+                -->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

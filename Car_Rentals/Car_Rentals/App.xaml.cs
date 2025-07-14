@@ -25,8 +25,7 @@ namespace Car_Rentals
             DependencyService.Register<IUserDataStore, EfUserDataStore>(); // EF Core data store for users
 
 
-            // MainPage = new AppShell();
-            MainPage = new NavigationPage(new WelcomePage());
+            MainPage = new WelcomePage();
         }
 
         protected override void OnStart()

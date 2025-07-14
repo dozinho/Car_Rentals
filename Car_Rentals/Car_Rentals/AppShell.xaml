@@ -3,7 +3,8 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Car_Rentals.Views"
        Title="Car Rentals"
-       x:Class="Car_Rentals.AppShell">
+       x:Class="Car_Rentals.AppShell"
+       FlyoutBackgroundColor="{StaticResource Accent}">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -15,14 +16,14 @@
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource TextLight}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource TextLight}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource TextLight}"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource TextLight}"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
@@ -32,21 +33,25 @@
             https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
             -->
             <Style Class="FlyoutItemLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="TextColor" Value="#222B45"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
-            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Grid" ApplyToDerivedTypes="True">
+                <Setter Property="Padding" Value="16,10"/>
+                <Setter Property="ColumnSpacing" Value="14"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="#F5EEDC" /> <!-- Soft highlight -->
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -63,7 +68,6 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -81,15 +85,17 @@
     <FlyoutItem Title="Cars" Icon="icon_about.png">
         <ShellContent Route="CarsPage" ContentTemplate="{DataTemplate local:CarsPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="My Rentals" Icon="rent.png">
+    <FlyoutItem Title="My Rentals" Icon="Rent.png">
         <ShellContent Route="MyRentalsPage" ContentTemplate="{DataTemplate local:MyRentalsPage}" />
     </FlyoutItem>
     <FlyoutItem Title="About" Icon="info.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
+    <!--
     <FlyoutItem Title="User List (Debug)" Icon="icon_about.png">
         <ShellContent Route="UserListPage" ContentTemplate="{DataTemplate local:UserListPage}" />
     </FlyoutItem>
+    -->
 
     <!-- Static Logout MenuItem -->
     <MenuItem Text="Logout" Icon="icon_about.png" Clicked="OnLogoutMenuItemClicked" />
@@ -104,36 +110,77 @@
     <!-- Removed LoginPage from TabBar, now accessible via FlyoutItem only -->
 
     <!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
+    These may be provided inline as below or as separate classes.
 
-    // This header appears at the top of the Flyout.
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyout-header
+    This header appears at the top of the Flyout.
+    https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyout-header
+    -->
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid>ContentHere</Grid>
+            <Grid BackgroundColor="{StaticResource Primary}" HeightRequest="100">
+                <Label Text="Car Rentals" 
+                       TextColor="White" 
+                       FontSize="Large" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+            </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
-    // ItemTemplate is for ShellItems as displayed in a Flyout
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-flyoutitem-appearance
+    <!-- ItemTemplate is for ShellItems as displayed in a Flyout -->
     <Shell.ItemTemplate>
         <DataTemplate>
-            <ContentView>
-                Bindable Properties: Title, Icon
-            </ContentView>
+            <Grid StyleClass="FlyoutItemLayoutStyle">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="36"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Column="0"
+                       Padding="0"
+                       HasShadow="False"
+                       BackgroundColor="#F5EEDC"
+                       HeightRequest="40"
+                       WidthRequest="40"
+                       CornerRadius="20"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Image Source="{Binding Icon}"
+                           HeightRequest="24"
+                           WidthRequest="24"
+                           Aspect="AspectFit"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                </Frame>
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       StyleClass="FlyoutItemLabelStyle"
+                       VerticalOptions="Center"
+                       Margin="8,0,0,0"
+                       FontAttributes="Bold"
+                       TextColor="#222B45"/>
+            </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>
 
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-menuitem-appearance
+    <!-- MenuItemTemplate is for MenuItems as displayed in a Flyout -->
     <Shell.MenuItemTemplate>
         <DataTemplate>
-            <ContentView>
-                Bindable Properties: Text, Icon
-            </ContentView>
+            <Grid StyleClass="MenuItemLayoutStyle">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Icon}" 
+                       Grid.Column="0" 
+                       HeightRequest="24" 
+                       WidthRequest="24" 
+                       VerticalOptions="Center" />
+                <Label Text="{Binding Text}" 
+                       Grid.Column="1" 
+                       StyleClass="FlyoutItemLabelStyle" 
+                       VerticalOptions="Center" />
+            </Grid>
         </DataTemplate>
     </Shell.MenuItemTemplate>
-
-    -->
 
 </Shell>

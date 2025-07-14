@@ -38,7 +38,7 @@ namespace Car_Rentals
             _loginFlyoutItem = new FlyoutItem
             {
                 Title = "Login",
-                Icon = "login_icon.png",
+                Icon = "icon_about.png",
                 Items =
                 {
                     new ShellContent

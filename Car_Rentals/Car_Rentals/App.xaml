@@ -12,13 +12,12 @@
             <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
             <converters:UpcomingStatusToBoolConverter x:Key="UpcomingStatusToBoolConverter" />
 
-            <Color x:Key="Primary">#1A237E</Color>
-            <!-- Navy Indigo -->
-            <Color x:Key="PrimaryDark">#0D1333</Color>
-            <Color x:Key="Accent">#FFC107</Color>
-            <!-- Amber (Luxury accent) -->
-            <Color x:Key="CardBackground">#FAFAFA</Color>
-            <!-- Soft off-white -->
+            <Color x:Key="Primary">#061437</Color> <!-- Deep blue from WelcomePage -->
+            <Color x:Key="PrimaryDark">#040F2C</Color> <!-- Even deeper blue for status bar/header -->
+            <Color x:Key="Accent">#F9F6E5</Color> <!-- Cream for buttons/highlights -->
+            <Color x:Key="CardBackground">#0B1A3A</Color> <!-- Slightly lighter blue for cards/highlights -->
+            <Color x:Key="TextLight">#FFFFFF</Color> <!-- White for main text -->
+            <Color x:Key="TextSecondary">#BCC4D4</Color> <!-- Soft blue-gray for secondary text -->
 
             <!-- Optional redefined alert/status colors -->
             <Color x:Key="Success">#43A047</Color>

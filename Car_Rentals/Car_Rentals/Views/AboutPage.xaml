@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Car_Rentals.Views.AboutPage"
-             Title="About">
+             Title="About"
+             BackgroundColor="{StaticResource Primary}">
 
     <ScrollView>
         <StackLayout Padding="20" Spacing="20">
@@ -13,24 +14,24 @@
             <StackLayout HorizontalOptions="Center" Spacing="15">
                 <Image Source="Rent.png" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="Center"/>
 
-                <Label Text="Your trusted car rental partner" FontSize="16" TextColor="Gray" HorizontalOptions="Center"/>
+                <Label Text="Your trusted car rental partner" FontSize="16" TextColor="{StaticResource TextSecondary}" HorizontalOptions="Center"/>
             </StackLayout>
 
             <!-- App Information -->
             <Frame Style="{StaticResource CardFrame}">
                 <StackLayout Spacing="15">
-                    <Label Text="About This App" FontSize="20" FontAttributes="Bold"/>
+                    <Label Text="About This App" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextLight}"/>
                     <Label Text="Car Rentals is a comprehensive mobile application that allows users to browse, search, and rent vehicles from our extensive fleet. Built with Xamarin.Forms, this app provides a seamless cross-platform experience for both iOS and Android users." 
-                           TextColor="Gray" LineBreakMode="WordWrap"/>
+                           TextColor="{StaticResource TextSecondary}" LineBreakMode="WordWrap"/>
                     
-                    <Label Text="Features:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <Label Text="Features:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0" TextColor="{StaticResource TextLight}"/>
                     <StackLayout Spacing="5">
-                        <Label Text="• Browse available cars by category" TextColor="Gray"/>
-                        <Label Text="• Search and filter vehicles" TextColor="Gray"/>
-                        <Label Text="• View detailed car specifications" TextColor="Gray"/>
-                        <Label Text="• Secure user authentication" TextColor="Gray"/>
-                        <Label Text="• Easy booking process" TextColor="Gray"/>
-                        <Label Text="• Rental history tracking" TextColor="Gray"/>
+                        <Label Text="• Browse available cars by category" TextColor="{StaticResource TextSecondary}"/>
+                        <Label Text="• Search and filter vehicles" TextColor="{StaticResource TextSecondary}"/>
+                        <Label Text="• View detailed car specifications" TextColor="{StaticResource TextSecondary}"/>
+                        <Label Text="• Secure user authentication" TextColor="{StaticResource TextSecondary}"/>
+                        <Label Text="• Easy booking process" TextColor="{StaticResource TextSecondary}"/>
+                        <Label Text="• Rental history tracking" TextColor="{StaticResource TextSecondary}"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>
@@ -38,15 +39,15 @@
             <!-- Company Information -->
             <Frame Style="{StaticResource CardFrame}">
                 <StackLayout Spacing="15">
-                    <Label Text="Our Company" FontSize="20" FontAttributes="Bold"/>
+                    <Label Text="Our Company" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextLight}"/>
                     <Label Text="We are committed to providing the best car rental experience with a wide selection of vehicles, competitive pricing, and excellent customer service. Our fleet includes economy, compact, mid-size, full-size, SUV, and luxury vehicles to meet all your transportation needs." 
-                           TextColor="Gray" LineBreakMode="WordWrap"/>
+                           TextColor="{StaticResource TextSecondary}" LineBreakMode="WordWrap"/>
                     
-                    <Label Text="Contact Information:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <Label Text="Contact Information:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0" TextColor="{StaticResource TextLight}"/>
                     <StackLayout Spacing="5">
-                        <Label Text="📧 Email: info@carrentals.com" TextColor="Gray"/>
-                        <Label Text="📞 Phone: 647 612 7083" TextColor="Gray"/>
-                        <Label Text="📍 Address: 740 Bathurst Street, Toronto,ON M5S 2R6, Canada " TextColor="Gray"/>
+                        <Label Text="📧 Email: info@carrentals.com" TextColor="{StaticResource TextSecondary}"/>
+                        <Label Text="📞 Phone: 647 612 7083" TextColor="{StaticResource TextSecondary}"/>
+                        <Label Text="📍 Address: 740 Bathurst Street, Toronto,ON M5S 2R6, Canada " TextColor="{StaticResource TextSecondary}"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>

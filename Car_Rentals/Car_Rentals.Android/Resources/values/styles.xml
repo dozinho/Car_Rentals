@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
 
+  <!-- Base application theme. -->
+  <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- If you are using revision 22.1.0 or higher, you can also remove the following line. -->
+    <item name="android:windowBackground">@android:color/white</item>
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+  </style>
+
   <style name="MainTheme" parent="MainTheme.Base">
     <!-- As of Xamarin.Forms 4.6 the theme has moved into the Forms binary -->
     <!-- If you want to override anything you can do that here. -->
@@ -15,4 +24,10 @@
          which is used to tint widgets -->
     <!--<item name="colorAccent">#FF4081</item>-->
   </style>
+
+  <!-- Shell Theme for proper flyout support -->
+  <style name="MainTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@color/launcher_background</item>
+  </style>
+
 </resources>
