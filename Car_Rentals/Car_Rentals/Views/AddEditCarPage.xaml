@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Car_Rentals.Views.AddEditCarPage"
+             Title="{Binding PageTitle}">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Image Source="{Binding Car.PhotoName}" HeightRequest="120" WidthRequest="180" Aspect="AspectFill" BackgroundColor="#EEE"/>
+            <Button Text="Pick Photo" Command="{Binding PickPhotoCommand}"/>
+            <Label Text="Brand"/>
+            <Entry Text="{Binding Car.Brand}"/>
+            <Label Text="Model"/>
+            <Entry Text="{Binding Car.Model}"/>
+            <Label Text="Year"/>
+            <Entry Text="{Binding Car.Year}" Keyboard="Numeric"/>
+            <Label Text="Color"/>
+            <Entry Text="{Binding Car.Color}"/>
+            <Label Text="Transmission"/>
+            <Entry Text="{Binding Car.Transmission}"/>
+            <Label Text="Fuel Consumption (L/100km)"/>
+            <Entry Text="{Binding Car.FuelConsumption}" Keyboard="Numeric"/>
+            <Label Text="Mileage"/>
+            <Entry Text="{Binding Car.Mileage}" Keyboard="Numeric"/>
+            <Label Text="Daily Rate ($)"/>
+            <Entry Text="{Binding Car.DailyRate}" Keyboard="Numeric"/>
+            <Label Text="Photo File Name"/>
+            <Entry Text="{Binding Car.PhotoName}"/>
+            <Label Text="Description"/>
+            <Editor Text="{Binding Car.Description}" HeightRequest="60"/>
+            <Label Text="License Plate"/>
+            <Entry Text="{Binding Car.LicensePlate}"/>
+            <Label Text="Seats"/>
+            <Entry Text="{Binding Car.Seats}" Keyboard="Numeric"/>
+            <Label Text="Category"/>
+            <Entry Text="{Binding Car.Category}"/>
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label Text="Available" VerticalOptions="Center"/>
+                <Switch IsToggled="{Binding Car.IsAvailable}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center">
+                <Button Text="Save" Command="{Binding SaveCommand}" WidthRequest="100"/>
+                <Button Text="Cancel" Command="{Binding CancelCommand}" WidthRequest="100"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage> 

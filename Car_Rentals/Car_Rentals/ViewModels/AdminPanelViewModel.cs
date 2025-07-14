@@ -33,14 +33,17 @@ namespace Car_Rentals.ViewModels
                 Cars.Add(car);
         }
 
-        private void OnAddCar()
+        private async void OnAddCar()
         {
-            // TODO: Show add car UI
+            await Shell.Current.Navigation.PushAsync(new Views.AddEditCarPage());
+            LoadCars();
         }
 
-        private void OnEditCar(Car car)
+        private async void OnEditCar(Car car)
         {
-            // TODO: Show edit car UI
+            if (car == null) return;
+            await Shell.Current.Navigation.PushAsync(new Views.AddEditCarPage(car));
+            LoadCars();
         }
 
         private async Task OnDeleteCar(Car car)
