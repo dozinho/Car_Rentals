@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Car_Rentals.Views.AddEditUserPage"
+             Title="{Binding PageTitle}">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Username" />
+            <Entry Text="{Binding User.Username}" />
+            <Label Text="Email" />
+            <Entry Text="{Binding User.Email}" Keyboard="Email" />
+            <Label Text="Password" />
+            <Entry Text="{Binding User.PasswordHash}" IsPassword="True" />
+            <Label Text="Is Admin" />
+            <Switch IsToggled="{Binding User.IsAdmin}" />
+            <Label Text="Is Active" />
+            <Switch IsToggled="{Binding User.IsActive}" />
+            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center">
+                <Button Text="Save" Command="{Binding SaveCommand}" WidthRequest="100" />
+                <Button Text="Cancel" Command="{Binding CancelCommand}" WidthRequest="100" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
