@@ -20,8 +20,27 @@
                                         <Label Text="{Binding LicensePlate}" FontSize="12" TextColor="Gray"/>
                                     </StackLayout>
                                     <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Spacing="10">
-                                        <Button Text="Edit" Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.EditCarCommand}" CommandParameter="{Binding .}"/>
-                                        <Button Text="Delete" Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.DeleteCarCommand}" CommandParameter="{Binding .}" TextColor="Red"/>
+                                        <Button Text="Edit"
+        Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.EditCarCommand}"
+        CommandParameter="{Binding .}"
+        WidthRequest="40"
+        HeightRequest="24"
+        FontSize="10"
+        CornerRadius="6"
+        Margin="0,0,4,0"
+        Padding="0"
+        VerticalOptions="Center"/>
+<Button Text="Delete"
+        Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.DeleteCarCommand}"
+        CommandParameter="{Binding .}"
+        TextColor="Red"
+        WidthRequest="40"
+        HeightRequest="24"
+        FontSize="10"
+        CornerRadius="6"
+        Margin="0"
+        Padding="0"
+        VerticalOptions="Center"/>
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>
@@ -31,10 +50,54 @@
             </StackLayout>
         </ContentPage>
         <ContentPage Title="Rentals" IconImageSource="Rent.png">
-            <StackLayout>
-                <Label Text="Rental Management (Coming Soon)" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,10"/>
-            </StackLayout>
-        </ContentPage>
+    <StackLayout>
+        <Label Text="Rental Management" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,10"/>
+        <Button Text="Add New Rental" Command="{Binding AddRentalCommand}" Margin="0,0,0,10"/>
+        <CollectionView ItemsSource="{Binding Rentals}">
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <Frame Margin="10,5" Padding="10" CornerRadius="8" BackgroundColor="White" HasShadow="True">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="{Binding CarPhoto}" HeightRequest="50" WidthRequest="70" Aspect="AspectFit"/>
+                    <StackLayout Margin="10,0,0,0">
+                        <Label Text="{Binding CarBrand}" FontAttributes="Bold" FontSize="16"/>
+                        <Label Text="{Binding CarModel}" FontSize="14"/>
+                        <Label Text="{Binding Username, StringFormat='User: {0}'}" FontSize="12"/>
+                        <Label Text="{Binding CustomerId, StringFormat='CustomerId: {0}'}" FontSize="12"/>
+                        <Label Text="{Binding PickupDate, StringFormat='Pickup: {0:yyyy-MM-dd}'}" FontSize="12" TextColor="Gray"/>
+                        <Label Text="{Binding ReturnDate, StringFormat='Return: {0:yyyy-MM-dd}'}" FontSize="12"/>
+                        <Label Text="{Binding Status}" FontSize="12"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Spacing="10">
+                        <Button Text="Edit"
+        Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.EditRentalCommand}"
+        CommandParameter="{Binding .}"
+        WidthRequest="40"
+        HeightRequest="24"
+        FontSize="10"
+        CornerRadius="6"
+        Margin="0,0,4,0"
+        Padding="0"
+        VerticalOptions="Center"/>
+<Button Text="Delete"
+        Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.DeleteRentalCommand}"
+        CommandParameter="{Binding .}"
+        TextColor="Red"
+        WidthRequest="40"
+        HeightRequest="24"
+        FontSize="10"
+        CornerRadius="6"
+        Margin="0"
+        Padding="0"
+        VerticalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+</CollectionView>
+    </StackLayout>
+</ContentPage>
         <ContentPage Title="Users" IconImageSource="icon_about.png">
             <StackLayout>
                 <Label Text="User Management" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,20,0,10"/>
@@ -52,8 +115,27 @@
                                         <Label Text="{Binding IsAdmin, StringFormat='Admin: {0}'}" FontSize="12"/>
                                     </StackLayout>
                                     <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Spacing="10">
-                                        <Button Text="Edit" Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.EditUserCommand}" CommandParameter="{Binding .}"/>
-                                        <Button Text="Delete" Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.DeleteUserCommand}" CommandParameter="{Binding .}" TextColor="Red"/>
+                                        <Button Text="Edit"
+        Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.EditUserCommand}"
+        CommandParameter="{Binding .}"
+        WidthRequest="40"
+        HeightRequest="24"
+        FontSize="10"
+        CornerRadius="6"
+        Margin="0,0,4,0"
+        Padding="0"
+        VerticalOptions="Center"/>
+<Button Text="Delete"
+        Command="{Binding Source={RelativeSource AncestorType={x:Type TabbedPage}}, Path=BindingContext.DeleteUserCommand}"
+        CommandParameter="{Binding .}"
+        TextColor="Red"
+        WidthRequest="40"
+        HeightRequest="24"
+        FontSize="10"
+        CornerRadius="6"
+        Margin="0"
+        Padding="0"
+        VerticalOptions="Center"/>
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>

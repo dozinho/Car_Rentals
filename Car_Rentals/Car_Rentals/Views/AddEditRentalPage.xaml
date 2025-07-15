@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Car_Rentals.Views.AddEditRentalPage"
+             Title="{Binding PageTitle}">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Car ID" />
+            <Entry Text="{Binding Rental.CarId}" />
+            <Label Text="Customer ID" />
+            <Entry Text="{Binding Rental.CustomerId}" />
+            <Label Text="Pickup Date" />
+            <DatePicker Date="{Binding Rental.PickupDate}" />
+            <Label Text="Return Date" />
+            <DatePicker Date="{Binding Rental.ReturnDate}" />
+            <Label Text="Total Cost" />
+            <Entry Text="{Binding Rental.TotalCost}" Keyboard="Numeric" />
+            <Label Text="Status" />
+            <Picker ItemsSource="{Binding StatusOptions}" SelectedItem="{Binding Rental.Status}" />
+            <Label Text="Pickup Location" />
+            <Entry Text="{Binding Rental.PickupLocation}" />
+            <Label Text="Return Location" />
+            <Entry Text="{Binding Rental.ReturnLocation}" />
+            <Label Text="Notes" />
+            <Editor Text="{Binding Rental.Notes}" HeightRequest="60" />
+            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Center">
+                <Button Text="Save" Command="{Binding SaveCommand}" WidthRequest="100" />
+                <Button Text="Cancel" Command="{Binding CancelCommand}" WidthRequest="100" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
